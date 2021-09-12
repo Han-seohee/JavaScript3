@@ -425,3 +425,79 @@ decrease.onclick = () => {
   number.innerText = current - 1;
 }
 ```
+
+---
+### :dog: 모달 만들기
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+  </head>
+<body>
+  <h1>안녕하세요!</h1>
+  <p>내용내용내용</p>
+  <button id="open">모달 열기</button>
+  <div class="modal-wrapper" style="display: none;">
+    <div class="modal">
+      <div class="modal-title">안녕하세요</div>
+      <p>모달 내용은 어쩌고 저쩌고...</p>
+      <div class="close-wrapper">
+        <button id="close">닫기</button>
+      </div>
+    </div>
+  </div>
+  <script src="src/index.js"></script>
+</body>
+</html>
+```
+
+```
+body {
+  font-family: sans-serif;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 24px 16px;
+  border-radius: 4px;
+  width: 320px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.close-wrapper {
+  text-align: right;
+}
+```
+
+```
+const open = document.getElementById('open');
+const close = document.getElementById('close');
+const modal = document.querySelector('.modal-wrapper');
+
+open.onclick = () => {
+  modal.style.display = "flex";
+};
+
+close.onclick = () => {
+  modal.style.display = "none";
+};
+```
