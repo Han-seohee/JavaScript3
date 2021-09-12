@@ -386,3 +386,42 @@ process()
 ```
 ---
 # HTML과 JavaScript 연동하기
+2021.09.12
+### :dog: 카운터 만들기
+
+>예제
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+  </head>
+<body>
+  <h2 id="number">0</h2>
+  <div>
+    <button id="increase">+1</button>
+    <button id="decrease">-1</button>
+  </div>
+  <script src="src/index.js"></script>
+</body>
+</html>
+```
+
+```
+const number = document.getElementById("number");
+const buttons = document.querySelectorAll('button');
+const [increase, decrease] = buttons;
+
+increase.onclick = () => {
+  const current = parseInt(number.innerText, 10);
+  number.innerText = current + 1;
+}
+
+decrease.onclick = () => {
+  const current = parseInt(number.innerText, 10);
+  number.innerText = current - 1;
+}
+```
